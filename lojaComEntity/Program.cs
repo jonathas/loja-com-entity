@@ -23,6 +23,9 @@ namespace lojaComEntity
             contexto.Usuarios.Add(jon);
             contexto.SaveChanges();
             contexto.Dispose();
+
+            Console.WriteLine("Salvou o usuario");
+            Console.ReadLine();
         }
     }
 }
