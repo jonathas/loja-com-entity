@@ -131,6 +131,8 @@
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="EntidadesContext.cs" />
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\PessoaFisica.cs" />
+    <Compile Include="Entidades\PessoaJuridica.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\ProdutoVenda.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -152,6 +154,10 @@
     <Compile Include="Migrations\20160818135746_criaVenda.cs" />
     <Compile Include="Migrations\20160818135746_criaVenda.designer.cs">
       <DependentUpon>20160818135746_criaVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20160818142155_tiposUsuario.cs" />
+    <Compile Include="Migrations\20160818142155_tiposUsuario.designer.cs">
+      <DependentUpon>20160818142155_tiposUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EntidadesContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />

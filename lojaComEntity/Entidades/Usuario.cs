@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.Entidades
 {
-    public class Usuario
+    public abstract class Usuario // abstract para nao poder instanciar mais
     {
         public int ID { get; set; }
         public string Nome { get; set; }
