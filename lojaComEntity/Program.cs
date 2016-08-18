@@ -77,11 +77,19 @@ namespace lojaComEntity
 
             //Console.WriteLine(p.Categoria.Nome);
 
-            Categoria categoria = contexto.Categorias.Include(c => c.Produtos).FirstOrDefault(c => c.ID == 1);
+            //Categoria categoria = contexto.Categorias.Include(c => c.Produtos).FirstOrDefault(c => c.ID == 1);
 
-            foreach(var p in categoria.Produtos)
+            //foreach(var p in categoria.Produtos)
+            //{
+            //    Console.WriteLine(p.Nome);
+            //}
+
+            // LINQ
+            var busca = from p in contexto.Produtos select p;
+
+            foreach(var produto in busca)
             {
-                Console.WriteLine(p.Nome);
+                Console.WriteLine(produto.Nome);
             }
 
             Console.ReadLine();

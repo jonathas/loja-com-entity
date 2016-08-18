@@ -127,6 +127,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="EntidadesContext.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Produto.cs" />
@@ -140,7 +142,7 @@
     <Compile Include="Migrations\20160818115954_CriaProdutoECategoria.designer.cs">
       <DependentUpon>20160818115954_CriaProdutoECategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioDao.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Migrations\20160818104236_criaUsuario.cs" />
     <Compile Include="Migrations\20160818104236_criaUsuario.designer.cs">
       <DependentUpon>20160818104236_criaUsuario.cs</DependentUpon>
