@@ -23,6 +23,11 @@ namespace lojaComEntity
             contexto.SaveChanges();
         }
 
+        public void SaveChanges()
+        {
+            contexto.SaveChanges();
+        }
+
         public Usuario BuscaPorId(int id)
         {
             return contexto.Usuarios.FirstOrDefault(u => u.ID == id);

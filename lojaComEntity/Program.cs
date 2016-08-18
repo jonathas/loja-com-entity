@@ -22,10 +22,21 @@ namespace lojaComEntity
 
             //manipulador.salva(jon);
 
-            Usuario jon = dao.BuscaPorId(2);
+            // estado da entidade: unchanged
+            Usuario jon = dao.BuscaPorId(1);
             //Console.WriteLine(jon.Nome);
 
-            dao.Remove(jon);
+            // estado da entidade: deleted
+            //dao.Remove(jon);
+
+            // estado da entidade: modified
+            jon.Nome = "Jon Ribeiro";
+
+            // estado da entidade: added
+            //dao.Salva(new Usuario());
+
+            // Que lindo, cara
+            dao.SaveChanges();
 
             Console.ReadLine();
         }
