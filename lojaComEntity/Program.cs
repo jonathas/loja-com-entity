@@ -85,9 +85,12 @@ namespace lojaComEntity
             //}
 
             // LINQ
-            var busca = from p in contexto.Produtos select p;
+            var busca = from p in contexto.Produtos
+                        orderby p.Nome
+                        select p;
+            IList<Produto> resultado = busca.ToList();
 
-            foreach(var produto in busca)
+            foreach(var produto in resultado)
             {
                 Console.WriteLine(produto.Nome);
             }
