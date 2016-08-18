@@ -1,4 +1,5 @@
 ﻿using lojaComEntity.Entidades;
+using Microsoft.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,23 +42,39 @@ namespace lojaComEntity
 
             EntidadesContext contexto = new EntidadesContext();
 
-            Categoria c = new Categoria()
-            {
-                Nome = "Informatica"
-            };
+            //Categoria c = new Categoria()
+            //{
+            //    Nome = "Informatica"
+            //};
 
-            contexto.Categorias.Add(c);
-            contexto.SaveChanges();
+            //contexto.Categorias.Add(c);
+            //contexto.SaveChanges();
 
-            Produto p = new Produto()
-            {
-                Nome = "Mouse",
-                Preco = 20,
-                Categoria = c
-            };
+            //Produto p = new Produto()
+            //{
+            //    Nome = "Mouse",
+            //    Preco = 20,
+            //    Categoria = c
+            //};
 
-            contexto.Produtos.Add(p);
-            contexto.SaveChanges();
+            //Produto p = new Produto()
+            //{
+            //    Nome = "Teclado",
+            //    Preco = 30,
+            //    CategoriaID = 1
+            //};
+
+            //contexto.Produtos.Add(p);
+            //contexto.SaveChanges();
+
+            //Produto p = contexto.Produtos.FirstOrDefault(produto => produto.ID == 1);
+
+            // Com o metodo Include, o Entity traz o relacionamento
+            Produto p = contexto.Produtos.Include(produto => produto.Categoria).FirstOrDefault(produto => produto.ID == 1);
+
+            Console.WriteLine(p.Nome);
+
+            Console.WriteLine(p.Categoria.Nome);
 
             Console.ReadLine();
         }
