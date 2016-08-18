@@ -22,5 +22,10 @@ namespace lojaComEntity
             contexto.Usuarios.Add(usuario);
             contexto.SaveChanges();
         }
+
+        public Usuario BuscaPorId(int id)
+        {
+            return contexto.Usuarios.FirstOrDefault(u=> u.ID == id);
+        }
     }
 }

@@ -14,15 +14,17 @@ namespace lojaComEntity
         static void Main(string[] args)
         {
             ManipuladorUsuario manipulador = new ManipuladorUsuario();
-            Usuario jon = new Usuario()
-            {
-                Nome = "Jon",
-                Senha = "123"
-            };
+            //usuario jon = new usuario()
+            //{
+            //    nome = "jon",
+            //    senha = "123"
+            //};
 
-            manipulador.Salva(jon);
+            //manipulador.salva(jon);
 
-            Console.WriteLine("Salvou o usuario");
+            Usuario jon = manipulador.BuscaPorId(2);
+
+            Console.WriteLine(jon.Nome);
             Console.ReadLine();
         }
     }
