@@ -13,7 +13,7 @@ namespace lojaComEntity
     {
         static void Main(string[] args)
         {
-            UsuarioDao dao = new UsuarioDao();
+            //UsuarioDao dao = new UsuarioDao();
             //usuario jon = new usuario()
             //{
             //    nome = "jon",
@@ -23,20 +23,41 @@ namespace lojaComEntity
             //manipulador.salva(jon);
 
             // estado da entidade: unchanged
-            Usuario jon = dao.BuscaPorId(1);
+            //Usuario jon = dao.BuscaPorId(1);
             //Console.WriteLine(jon.Nome);
 
             // estado da entidade: deleted
             //dao.Remove(jon);
 
             // estado da entidade: modified
-            jon.Nome = "Jon Ribeiro";
+            //jon.Nome = "Jon Ribeiro";
 
             // estado da entidade: added
             //dao.Salva(new Usuario());
 
             // Que lindo, cara
-            dao.SaveChanges();
+            //dao.SaveChanges();
+
+
+            EntidadesContext contexto = new EntidadesContext();
+
+            Categoria c = new Categoria()
+            {
+                Nome = "Informatica"
+            };
+
+            contexto.Categorias.Add(c);
+            contexto.SaveChanges();
+
+            Produto p = new Produto()
+            {
+                Nome = "Mouse",
+                Preco = 20,
+                Categoria = c
+            };
+
+            contexto.Produtos.Add(p);
+            contexto.SaveChanges();
 
             Console.ReadLine();
         }
