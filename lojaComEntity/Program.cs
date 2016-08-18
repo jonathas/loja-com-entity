@@ -70,11 +70,18 @@ namespace lojaComEntity
             //Produto p = contexto.Produtos.FirstOrDefault(produto => produto.ID == 1);
 
             // Com o metodo Include, o Entity traz o relacionamento
-            Produto p = contexto.Produtos.Include(produto => produto.Categoria).FirstOrDefault(produto => produto.ID == 1);
+            //Produto p = contexto.Produtos.Include(produto => produto.Categoria).FirstOrDefault(produto => produto.ID == 1);
 
-            Console.WriteLine(p.Nome);
+            //Console.WriteLine(p.Nome);
 
-            Console.WriteLine(p.Categoria.Nome);
+            //Console.WriteLine(p.Categoria.Nome);
+
+            Categoria categoria = contexto.Categorias.Include(c => c.Produtos).FirstOrDefault(c => c.ID == 1);
+
+            foreach(var p in categoria.Produtos)
+            {
+                Console.WriteLine(p.Nome);
+            }
 
             Console.ReadLine();
         }
