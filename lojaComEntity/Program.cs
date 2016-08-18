@@ -85,14 +85,16 @@ namespace lojaComEntity
             //}
 
             // LINQ
+            decimal precoMinimo = 60;
             var busca = from p in contexto.Produtos
+                        where p.Preco > precoMinimo
                         orderby p.Nome
                         select p;
             IList<Produto> resultado = busca.ToList();
 
             foreach(var produto in resultado)
             {
-                Console.WriteLine(produto.Nome);
+                Console.WriteLine(produto.Nome + " - " + produto.Preco);
             }
 
             Console.ReadLine();
