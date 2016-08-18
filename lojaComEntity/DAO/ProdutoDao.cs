@@ -5,21 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lojaComEntity
+namespace lojaComEntity.DAO
 {
-    class UsuarioDao
+    class ProdutoDao
     {
 
         private EntidadesContext contexto;
 
-        public UsuarioDao()
+        public ProdutoDao()
         {
             contexto = new EntidadesContext();
         }
 
-        public void Salva(Usuario usuario)
+        public void Salva(Produto produto)
         {
-            contexto.Usuarios.Add(usuario);
+            contexto.Produtos.Add(produto);
             contexto.SaveChanges();
         }
 
@@ -28,15 +28,16 @@ namespace lojaComEntity
             contexto.SaveChanges();
         }
 
-        public Usuario BuscaPorId(int id)
+        public Produto BuscaPorId(int id)
         {
-            return contexto.Usuarios.FirstOrDefault(u => u.ID == id);
+            return contexto.Produtos.FirstOrDefault(u => u.ID == id);
         }
 
-        public void Remove(Usuario usuario)
+        public void Remove(Produto produto)
         {
-            contexto.Usuarios.Remove(usuario);
+            contexto.Produtos.Remove(produto);
             contexto.SaveChanges();
         }
+
     }
 }
