@@ -109,34 +109,41 @@ namespace lojaComEntity
             //}
 
             // Many to many
-            UsuarioDAO dao = new UsuarioDAO();
-            Usuario jon = dao.BuscaPorId(1);
+            //UsuarioDAO dao = new UsuarioDAO();
+            //Usuario jon = dao.BuscaPorId(1);
 
-            Venda v = new Venda()
+            //Venda v = new Venda()
+            //{
+            //    Cliente = jon
+            //};
+
+            //Produto p = contexto.Produtos.FirstOrDefault(prod => prod.ID == 1);
+            //Produto p2 = contexto.Produtos.FirstOrDefault(prod => prod.ID == 2);
+
+            //ProdutoVenda pv = new ProdutoVenda()
+            //{
+            //    Venda = v,
+            //    Produto = p
+            //};
+
+            //ProdutoVenda pv2 = new ProdutoVenda()
+            //{
+            //    Venda = v,
+            //    Produto = p2
+            //};
+
+            //contexto.Vendas.Add(v);
+            //contexto.ProdutoVenda.Add(pv);
+            //contexto.ProdutoVenda.Add(pv2);
+
+            //contexto.SaveChanges();
+
+            Venda venda = contexto.Vendas.Include(v => v.ProdutoVenda).ThenInclude(pv => pv.Produto).FirstOrDefault(v => v.ID == 1);
+            
+            foreach(var pv in venda.ProdutoVenda)
             {
-                Cliente = jon
-            };
-
-            Produto p = contexto.Produtos.FirstOrDefault(prod => prod.ID == 1);
-            Produto p2 = contexto.Produtos.FirstOrDefault(prod => prod.ID == 2);
-
-            ProdutoVenda pv = new ProdutoVenda()
-            {
-                Venda = v,
-                Produto = p
-            };
-
-            ProdutoVenda pv2 = new ProdutoVenda()
-            {
-                Venda = v,
-                Produto = p2
-            };
-
-            contexto.Vendas.Add(v);
-            contexto.ProdutoVenda.Add(pv);
-            contexto.ProdutoVenda.Add(pv2);
-
-            contexto.SaveChanges();
+                Console.WriteLine(pv.Produto.Nome);
+            }
 
             Console.ReadLine();
         }
