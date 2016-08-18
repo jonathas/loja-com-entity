@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.DAO
 {
-    class CategoriaDAO
+    public class CategoriaDAO
     {
 
         private EntidadesContext contexto;

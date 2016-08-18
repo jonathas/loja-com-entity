@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.DAO
 {
-    class ProdutoDAO
+    public class ProdutoDAO
     {
 
         private EntidadesContext contexto;
@@ -31,6 +31,29 @@ namespace lojaComEntity.DAO
         public Produto BuscaPorId(int id)
         {
             return contexto.Produtos.FirstOrDefault(p => p.ID == id);
+        }
+
+        public IList<Produto> BuscaPorNomePrecoNomeCategoria(string nome, decimal preco, string nomeCategoria)
+        {
+            var busca = from p in contexto.Produtos
+                        select p;
+
+            if (!String.IsNullOrEmpty(nome))
+            {
+                busca = busca.Where(p => p.Nome == nome);
+            }
+
+            if (preco > 0)
+            {
+                busca = busca.Where(p => p.Preco == preco);
+            }
+
+            if(!String.IsNullOrEmpty(nomeCategoria))
+            {
+                busca = busca.Where(p => p.Categoria.Nome == nomeCategoria);
+            }
+
+            return busca.ToList();
         }
 
         public void Remove(Produto produto)

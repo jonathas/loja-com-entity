@@ -85,18 +85,27 @@ namespace lojaComEntity
             //}
 
             // LINQ
-            decimal precoMinimo = 40;
+            //decimal precoMinimo = 40;
 
-            // Nao preciso fazer join nenhum. So usar uma navigation property
-            var busca = from p in contexto.Produtos
-                        where p.Categoria.Nome == "roupas" && p.Preco > precoMinimo
-                        orderby p.Nome
-                        select p;
-            IList<Produto> resultado = busca.ToList();
+            //// Nao preciso fazer join nenhum. So usar uma navigation property
+            //var busca = from p in contexto.Produtos
+            //            where p.Categoria.Nome == "roupas" && p.Preco > precoMinimo
+            //            orderby p.Nome
+            //            select p;
+            //IList<Produto> resultado = busca.ToList();
 
-            foreach(var produto in resultado)
+            //foreach(var produto in resultado)
+            //{
+            //    Console.WriteLine(produto.Nome + " - " + produto.Preco);
+            //}
+
+            ProdutoDAO dao = new ProdutoDAO();
+
+            var resultado = dao.BuscaPorNomePrecoNomeCategoria(null,0,"informatica");
+
+            foreach(var p in resultado)
             {
-                Console.WriteLine(produto.Nome + " - " + produto.Preco);
+                Console.WriteLine(p.Nome);
             }
 
             Console.ReadLine();
