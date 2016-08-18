@@ -99,14 +99,44 @@ namespace lojaComEntity
             //    Console.WriteLine(produto.Nome + " - " + produto.Preco);
             //}
 
-            ProdutoDAO dao = new ProdutoDAO();
+            //ProdutoDAO dao = new ProdutoDAO();
 
-            var resultado = dao.BuscaPorNomePrecoNomeCategoria(null,0,"informatica");
+            //var resultado = dao.BuscaPorNomePrecoNomeCategoria(null,0,"informatica");
 
-            foreach(var p in resultado)
+            //foreach(var p in resultado)
+            //{
+            //    Console.WriteLine(p.Nome);
+            //}
+
+            // Many to many
+            UsuarioDAO dao = new UsuarioDAO();
+            Usuario jon = dao.BuscaPorId(1);
+
+            Venda v = new Venda()
             {
-                Console.WriteLine(p.Nome);
-            }
+                Cliente = jon
+            };
+
+            Produto p = contexto.Produtos.FirstOrDefault(prod => prod.ID == 1);
+            Produto p2 = contexto.Produtos.FirstOrDefault(prod => prod.ID == 2);
+
+            ProdutoVenda pv = new ProdutoVenda()
+            {
+                Venda = v,
+                Produto = p
+            };
+
+            ProdutoVenda pv2 = new ProdutoVenda()
+            {
+                Venda = v,
+                Produto = p2
+            };
+
+            contexto.Vendas.Add(v);
+            contexto.ProdutoVenda.Add(pv);
+            contexto.ProdutoVenda.Add(pv2);
+
+            contexto.SaveChanges();
 
             Console.ReadLine();
         }
