@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity
 {
-    class ManipuladorUsuario
+    class UsuarioDao
     {
 
         private EntidadesContext contexto;
 
-        public ManipuladorUsuario()
+        public UsuarioDao()
         {
             contexto = new EntidadesContext();
         }

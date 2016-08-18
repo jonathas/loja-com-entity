@@ -13,7 +13,7 @@ namespace lojaComEntity
     {
         static void Main(string[] args)
         {
-            ManipuladorUsuario manipulador = new ManipuladorUsuario();
+            UsuarioDao dao = new UsuarioDao();
             //usuario jon = new usuario()
             //{
             //    nome = "jon",
@@ -22,10 +22,10 @@ namespace lojaComEntity
 
             //manipulador.salva(jon);
 
-            Usuario jon = manipulador.BuscaPorId(2);
+            Usuario jon = dao.BuscaPorId(2);
             //Console.WriteLine(jon.Nome);
 
-            manipulador.Remove(jon);
+            dao.Remove(jon);
 
             Console.ReadLine();
         }
