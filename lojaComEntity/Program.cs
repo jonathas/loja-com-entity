@@ -13,13 +13,16 @@ namespace lojaComEntity
     {
         static void Main(string[] args)
         {
+            EntidadesContext contexto = new EntidadesContext();
             Usuario jon = new Usuario()
             {
                 Nome = "Jon",
                 Senha = "123"
             };
 
-
+            contexto.Usuarios.Add(jon);
+            contexto.SaveChanges();
+            contexto.Dispose();
         }
     }
 }
