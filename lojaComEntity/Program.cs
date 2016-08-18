@@ -23,8 +23,10 @@ namespace lojaComEntity
             //manipulador.salva(jon);
 
             Usuario jon = manipulador.BuscaPorId(2);
+            //Console.WriteLine(jon.Nome);
 
-            Console.WriteLine(jon.Nome);
+            manipulador.Remove(jon);
+
             Console.ReadLine();
         }
     }

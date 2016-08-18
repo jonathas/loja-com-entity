@@ -25,7 +25,13 @@ namespace lojaComEntity
 
         public Usuario BuscaPorId(int id)
         {
-            return contexto.Usuarios.FirstOrDefault(u=> u.ID == id);
+            return contexto.Usuarios.FirstOrDefault(u => u.ID == id);
+        }
+
+        public void Remove(Usuario usuario)
+        {
+            contexto.Usuarios.Remove(usuario);
+            contexto.SaveChanges();
         }
     }
 }
