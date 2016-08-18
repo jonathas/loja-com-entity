@@ -1,4 +1,5 @@
-﻿using lojaComEntity.Entidades;
+﻿using lojaComEntity.DAO;
+using lojaComEntity.Entidades;
 using Microsoft.Data.Entity;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace lojaComEntity
     {
         static void Main(string[] args)
         {
-            //UsuarioDao dao = new UsuarioDao();
+            //UsuarioDAO dao = new UsuarioDAO();
             //usuario jon = new usuario()
             //{
             //    nome = "jon",

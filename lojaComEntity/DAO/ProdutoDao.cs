@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.DAO
 {
-    class ProdutoDao
+    class ProdutoDAO
     {
 
         private EntidadesContext contexto;
 
-        public ProdutoDao()
+        public ProdutoDAO()
         {
             contexto = new EntidadesContext();
         }
@@ -30,7 +30,7 @@ namespace lojaComEntity.DAO
 
         public Produto BuscaPorId(int id)
         {
-            return contexto.Produtos.FirstOrDefault(u => u.ID == id);
+            return contexto.Produtos.FirstOrDefault(p => p.ID == id);
         }
 
         public void Remove(Produto produto)

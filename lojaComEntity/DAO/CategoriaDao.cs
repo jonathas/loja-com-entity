@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.DAO
 {
-    class CategoriaDao
+    class CategoriaDAO
     {
 
         private EntidadesContext contexto;
 
-        public CategoriaDao()
+        public CategoriaDAO()
         {
             contexto = new EntidadesContext();
         }
@@ -30,7 +30,7 @@ namespace lojaComEntity.DAO
 
         public Categoria BuscaPorId(int id)
         {
-            return contexto.Categorias.FirstOrDefault(u => u.ID == id);
+            return contexto.Categorias.FirstOrDefault(c => c.ID == id);
         }
 
         public void Remove(Categoria categoria)

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace lojaComEntity.DAO
 {
-    class UsuarioDao
+    class UsuarioDAO
     {
 
         private EntidadesContext contexto;
 
-        public UsuarioDao()
+        public UsuarioDAO()
         {
             contexto = new EntidadesContext();
         }
