@@ -85,9 +85,11 @@ namespace lojaComEntity
             //}
 
             // LINQ
-            decimal precoMinimo = 60;
+            decimal precoMinimo = 40;
+
+            // Nao preciso fazer join nenhum. So usar uma navigation property
             var busca = from p in contexto.Produtos
-                        where p.Preco > precoMinimo
+                        where p.Categoria.Nome == "roupas" && p.Preco > precoMinimo
                         orderby p.Nome
                         select p;
             IList<Produto> resultado = busca.ToList();
